@@ -22,7 +22,7 @@ function findUser(email, done) {
 // Esta función registra al usuario.
 function registerUser(userData, done) {
     // Lee el archivo users.json para obtener los usuarios existentes
-    fs.readFile('users.json', 'utf8', (err, data) => {
+    fs.readFile('src/Users/users.json', 'utf8', (err, data) => {
         if (err) {
             done(err); // Llama al callback "done" pasando el mensaje de error
         } else {
@@ -30,7 +30,7 @@ function registerUser(userData, done) {
             // Agrega el nuevo usuario al arreglo de usuarios
             users.push(userData);
             // Escribe el archivo actualizado con el nuevo usuario
-            fs.writeFile('users.json', JSON.stringify(users), 'utf8', err => {
+            fs.writeFile('src/Users/users.json', JSON.stringify(users), 'utf8', err => {
                 if (err) {
                     done(err); // Llama al callback "done" pasando el mensaje de error
                 } else {

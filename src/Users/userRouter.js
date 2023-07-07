@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('./userController');
+const userDAO = require('./userDAO');
 
 // Este método GET obtendrá al usuario con el token
 router.get('/', (req, res) => {
@@ -16,6 +17,18 @@ router.get('/', (req, res) => {
             res.status(200).json({ user: result }); // Maneja el resultado exitoso devuelto por el controlador
         }
     });
+});
+
+router.post('/register', (req, res) => {
+        const user = req.body;
+
+        userDAO.registerUser(user, (err, message) => {
+                if (err) {
+                        res.status(404).json({"message": "No se pudo crear el ususario"});       
+                } else {
+                        res.status(201).json({"message": message});
+                }
+        });   
 });
 
 module.exports = router;

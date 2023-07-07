@@ -32,7 +32,7 @@ router.post('/login',(req,res)=>{
             res.status(401).json({ error: err });
         } else {
             // Maneja el resultado exitoso devuelto por el controlador
-            res.status(200).json({ message: result });
+            res.status(200).json({ message: result, STATUS: "OK"});
         }
     });
 });
