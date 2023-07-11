@@ -1,9 +1,9 @@
 const express = require('express')
 const app = express()
 const config = require('./config')
-const authRouter = require('./src/aunthentication')
-const userRouter = require('./src/Users')
-const verifyAuth = require('./src/aunthentication/authMiddleware')
+const authRouter = require('./aunthentication')
+const userRouter = require('./Users')
+const verifyAuth = require('./aunthentication/authMiddleware')
 const dateFormat = require('date-format')
 const morgan = require('morgan')
 

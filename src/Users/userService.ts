@@ -1,10 +1,9 @@
-// Importa la capa DAO
-const userDAO = require('./userDAO');
+import userDAO from './userDAO';
 // Aquí se supone que se importa el módulo correspondiente, pero no se muestra el código real de importación.
 
-function findUser(email, done) {
+function findUser(email: string, done: (err: any, user?: any) => void) {
     // Llama al método findUser del DAO
-    userDAO.findUser(email, (err, user) => {
+    userDAO.findUser(email, (err: any, user?: any) => {
         if (err) {
             done(err); // Llama al callback "done" pasando el mensaje de error
         } else {
@@ -13,9 +12,9 @@ function findUser(email, done) {
     });
 }
 
-function registerUser(userData, done) {
+function registerUser(userData: any, done: (err: any, result?: any) => void) {
     // Llama al método registerUser del DAO
-    userDAO.registerUser(userData, (err, result) => {
+    userDAO.registerUser(userData, (err: any, result?: any) => {
         if (err) {
             done(err); // Llama al callback "done" pasando el mensaje de error
         } else {
@@ -24,7 +23,7 @@ function registerUser(userData, done) {
     });
 }
 
-module.exports = {
+export default{
     findUser,
     registerUser
 };

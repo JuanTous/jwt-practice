@@ -3,4 +3,4 @@ const config ={
    AUTH_SECRET: process.env.AUTH_SECRET || "secret",
 }
 
-module.exports = config
+export default config;
